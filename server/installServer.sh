@@ -11,6 +11,8 @@ cp start.sh /opt/uptimePageServer
 chmod +x /opt/uptimePageServer/start.sh
 cp main.py /opt/uptimePageServer
 cp requirements.txt /opt/uptimePageServer
+cp -r templates /opt/uptimePageServer
+cp -r config /opt/uptimePageServer
 python3 -m pip install -r /opt/uptimePageServer/requirements.txt
 
 chown -R root:root /opt/uptimePageServer
