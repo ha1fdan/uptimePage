@@ -5,6 +5,8 @@ changelog:
   - title: '🚀 Features'
     labels:
       - 'feature'
+      - 'feat'
+      - 'new'
       - 'enhancement'
   - title: '🐛 Bug Fixes'
     labels:
