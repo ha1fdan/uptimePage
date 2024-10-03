@@ -21,24 +21,24 @@
 2. Navigate to the project directory:
 
    ```bash
-   cd uptimePage
+   cd uptimePage/server
    ```
 
 3. Run the installation script:
 
    ```bash
-   ./install-server.sh
+   ./installServer.sh
    ```
 
 ### Usage
 
-1. Start the uptimePage service:
+1. Start the uptimePage Server service:
 
    ```bash
-   systemctl start uptimepage
+   systemctl start uptimePageServer
    ```
 
-2. Access the web interface at `http://localhost:8080` (or your desired port) to monitor your systems.
+2. Access the web interface at `http://localhost:8190` (or your desired port) to monitor your systems.
 
 3. Add systems to monitor using the web interface or by editing the configuration file:
 
@@ -53,13 +53,19 @@
 1. Clone the repository:
 
    ```bash
-   curl -sSL https://raw.githubusercontent.com/ha1fdan/uptimePage/master/clientInstall.sh | bash
+   git clone https://github.com/ha1fdan/uptimePage.git
    ```
 
-2. Start the uptimePageClient service:
+2. Navigate to the project directory:
 
    ```bash
-   systemctl start uptimePageClient
+   cd uptimePage/client
+   ```
+
+3. Run the installation script:
+
+   ```bash
+   ./installClient.sh
    ```
 
 
