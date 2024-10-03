@@ -20,3 +20,5 @@ cp uptimePageClient.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable uptimePageClient.service
 systemctl start uptimePageClient.service
+
+echo "Client installed successfully"

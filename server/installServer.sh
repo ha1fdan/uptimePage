@@ -22,3 +22,5 @@ cp uptimePageServer.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable uptimePageServer.service
 systemctl start uptimePageServer.service
+
+echo "Server installed successfully"
