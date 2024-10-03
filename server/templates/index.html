@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uptime Monitor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Uptime Monitor</h1>
+        
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for system in systems %}
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ system.name }}</h5>
+                        
+                        <p class="card-text">
+                            <strong>Status:</strong>
+                            <span class="badge {{ 'bg-success' if system.online == True else 'bg-danger' }}">
+                                {{ system.status }}
+                            </span>
+                        </p>
+                        <p class="card-text"><strong>Platform:</strong> {{ system.platform }}</p>
+                        <!--<p class="card-text"><strong>Online:</strong> {{ system.online }}</p>-->
+                        <p class="card-text"><strong>Up Since:</strong> {{ system.upSince }}</p>
+
+                        <p class="card-text"><strong>Disk Usage:</strong></p>
+                        <div class="progress mb-2">
+                            <div class="progress-bar {{ 'bg-success' if system.diskUsage < 70 else 'bg-warning' if system.diskUsage < 90 else 'bg-danger' }}" role="progressbar" style="width: {{ system.diskUsage }}%;" aria-valuenow="{{ system.diskUsage }}" aria-valuemin="0" aria-valuemax="100">{{ system.diskUsage }}%</div>
+                        </div>
+
+                        <p class="card-text"><strong>Memory Usage:</strong></p>
+                        <div class="progress mb-2">
+                            <div class="progress-bar {{ 'bg-success' if system.memoryUsage < 70 else 'bg-warning' if system.memoryUsage < 90 else 'bg-danger' }}" role="progressbar" style="width: {{ system.memoryUsage }}%;" aria-valuenow="{{ system.memoryUsage }}" aria-valuemin="0" aria-valuemax="100">{{ system.memoryUsage }}%</div>
+                        </div>                
+
+                        <p class="card-text"><strong>CPU Usage:</strong></p>
+                        <div class="progress">
+                            <div class="progress-bar {{ 'bg-success' if system.cpuUsage < 70 else 'bg-warning' if system.cpuUsage < 90 else 'bg-danger' }}" role="progressbar" style="width: {{ system.cpuUsage }}%;" aria-valuenow="{{ system.cpuUsage }}" aria-valuemin="0" aria-valuemax="100">{{ system.cpuUsage }}%</div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Last checked: {{ system.last_checked }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+[Unit]
+Description=uptimePage Server Service
+After=network.target
+
+[Service]
+ExecStart=/opt/uptimePageServer/start.sh
+WorkingDirectory=/opt/uptimePageServer
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
